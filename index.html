@@ -360,12 +360,12 @@
               </li>
             </ul>
           </div>
-          <form action="">
+          <form action="" class="footer-form">
             <label for="email">Подпишитесь на рассылку</label>
 
             <input type="email" name="email" id="email" placeholder="E-mail" />
 
-            <button type="submit" class="button">Подписаться</button>
+            <button type="submit" class="button footer-form-button">Подписаться</button>
           </form>
         </div>
       </div>
@@ -376,16 +376,21 @@
         <form>
           <label for="name">Имя</label>
           <input type="text" name="username" id="name" />
-          <label for="user_email">Email</label>
+          <label for="tel">Телефон</label>
+          <input type="tel" name="usertel" id="tel" />
+          <label for="user_email">Почта</label>
           <input type="email" name="email" id="user_email" />
 
-          <label for="user_password">Password</label>
-          <input type="password" name="password" id="user_password" />
+          <label for="feedback">Комментарий</label>
+          <textarea name="feedback" id="feedback" rows="5" placeholder="Type your message here..."></textarea>
 
-          <button type="submit">Submit</button>
+          <button type="submit" class="button">Отправить</button>
         </form>
       </div>
     </div>
-    <script src="./js/modal.js"></script>
+    <script src="./js/modal.js">
+      (() => { document.querySelector('.js-speaker-form').addEventListener('submit', e => { e.preventDefault(); new
+      FormData(e.currentTarget).forEach((value, name) => console.log(`${name}: ${value}`), ); }); })();
+    </script>
   </body>
 </html>
